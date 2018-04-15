@@ -1,0 +1,280 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf400
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 HelveticaNeue;\f2\fnil\fcharset0 HelveticaNeue-Italic;
+\f3\fswiss\fcharset0 ArialMT;\f4\froman\fcharset0 Times-Roman;\f5\fnil\fcharset0 HelveticaNeue-Bold;
+}
+{\colortbl;\red255\green255\blue255;\red42\green42\blue42;\red255\green255\blue255;\red24\green114\blue217;
+\red26\green26\blue26;\red38\green38\blue38;\red176\green204\blue234;\red0\green0\blue0;\red57\green57\blue57;
+\red42\green42\blue42;\red49\green49\blue50;}
+{\*\expandedcolortbl;;\cssrgb\c21961\c21961\c21961;\cssrgb\c100000\c100000\c100000;\cssrgb\c9412\c53333\c88235;
+\cssrgb\c13333\c13333\c13333;\cssrgb\c20000\c20000\c20000;\cssrgb\c74118\c83922\c93333;\cssrgb\c0\c0\c0;\cssrgb\c29020\c29020\c29020;
+\cssrgb\c21961\c21961\c21961;\cssrgb\c25098\c25098\c25490;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww28600\viewh15460\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Networking:\
+1) Bascis\
+- TCP/IP protocol, think of it like a collection of rules computers must all follow to allow the millions and millions of networked machines called the Internet to function.\
+- The first thing you might notice is that TCP/IP is not just one protocol, but an entire suite of protocols\
+- 
+\f1\fs34 \AppleTypeServices\AppleTypeServicesF65539 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 services like\'a0{\field{\*\fldinst{HYPERLINK "http://en.wikipedia.org/wiki/Voice_over_IP"}}{\fldrslt \cf4 \strokec4 VOIP}}\'a0and online games are too fast for TCP, UDP is followed there. this is the reason In online games/video-calls we ignore jump in the frame rate
+\f0\fs24 \AppleTypeServices \cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+-  
+\f1\fs34 \AppleTypeServices\AppleTypeServicesF65539 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 TCP is great when you need to make sure all the packets arrive and in order. Web browsing and the like would be awfully hard without having reliable transportation
+\f0\fs24 \AppleTypeServices \cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+{{\NeXTGraphic Pasted Graphic.tiff \width11840 \height10380 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\
+- 
+\f1\fs34 \AppleTypeServices\AppleTypeServicesF65539 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 It is the\'a0
+\f2\i \AppleTypeServices\AppleTypeServicesF65539 Transport
+\f1\i0 \AppleTypeServices\AppleTypeServicesF65539 \'a0layer that determines, based on its parameters, what protocol to use\
+- Every single packet being sent around has two addresses inside of it\'97an\'a0
+\f2\i \AppleTypeServices\AppleTypeServicesF65539 Internet Protocol
+\f1\i0 \AppleTypeServices\AppleTypeServicesF65539 \'a0and a\'a0
+\f2\i \AppleTypeServices\AppleTypeServicesF65539 Media Access Control\'a0
+\f1\i0 \AppleTypeServices\AppleTypeServicesF65539 address\
+- one can think of IP(n/w layer) addressing as supporting the software implementation and MAC addresses(dll) as supporting the hardware implementation of the network stack.\
+\
+2) ARP \
+- Your network maintains a mapping between the IP address of a device and its MAC address. This mapping is known as the ARP Table.\
+- 
+\b \AppleTypeServices\AppleTypeServicesF65539 If the IP is local
+\b0 \AppleTypeServices\AppleTypeServicesF65539 , your computer will look in its ARP table, the table where the responses to previous ARP requests are cached, to find the MAC address.\
+- 
+\b \AppleTypeServices\AppleTypeServicesF65539 If it's not there
+\b0 \AppleTypeServices\AppleTypeServicesF65539 , then your computer will 
+\b \AppleTypeServices\AppleTypeServicesF65539 broadcast an ARP request
+\b0 \AppleTypeServices\AppleTypeServicesF65539  to find out the MAC address for the destination IP. Since this request is broadcast, 
+\b \AppleTypeServices\AppleTypeServicesF65539 all machines on the network will receive it and examine the contents. If the IP address in the request is their own, they'll reply back
+\b0 \AppleTypeServices\AppleTypeServicesF65539 . On receiving this information, 
+\b \AppleTypeServices\AppleTypeServicesF65539 your computer will update its ARP table
+\b0 \AppleTypeServices\AppleTypeServicesF65539  to include the new information and will then send out the frame addressed with the destination hosts MAC address.\
+\
+3) Packet routing\
+Basic terminologies:\
+\
+- 
+\b \AppleTypeServices\AppleTypeServicesF65539 subnet mask
+\b0 \AppleTypeServices\AppleTypeServicesF65539  : 
+\f3\fs32 \AppleTypeServices \cf5 \strokec5 When a large network is\'a0
+\b subnetted
+\b0 , the network is divided into at least two smaller subnetworks, with each subnetwork (
+\b subnet
+\b0 ) having its own subnetwork address (subnetid). When\'a0
+\b supernetting
+\b0 \'a0is performed, several small Class C networks are combined to create one large network, or supernetwork
+\f1\fs34 \AppleTypeServices\AppleTypeServicesF65539 \cf2 \strokec2 \
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trcbpat3 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clcbpat7 \clwWidth1440\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf8 \clbrdrl\brdrs\brdrw20\brdrcf8 \clbrdrb\brdrs\brdrw20\brdrcf8 \clbrdrr\brdrs\brdrw20\brdrcf8 \clpadl144 \clpadr144 \gaph\cellx1234
+\clvertalc \clcbpat7 \clwWidth1960\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf8 \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf8 \clbrdrr\brdrs\brdrw20\brdrcf8 \clpadl144 \clpadr144 \gaph\cellx2468
+\clvertalc \clcbpat7 \clwWidth2420\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf8 \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf8 \clbrdrr\brdrs\brdrw20\brdrcf8 \clpadl144 \clpadr144 \gaph\cellx3702
+\clvertalc \clcbpat7 \clwWidth3980\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf8 \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf8 \clbrdrr\brdrs\brdrw20\brdrcf8 \clpadl144 \clpadr144 \gaph\cellx4937
+\clvertalc \clcbpat7 \clwWidth3940\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf8 \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf8 \clbrdrr\brdrs\brdrw20\brdrcf8 \clpadl144 \clpadr144 \gaph\cellx6171
+\clvertalc \clcbpat7 \clwWidth4180\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf8 \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf8 \clbrdrr\brdrs\brdrw20\brdrcf8 \clpadl144 \clpadr144 \gaph\cellx7405
+\clvertalc \clcbpat7 \clwWidth4280\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf8 \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf8 \clbrdrr\brdrs\brdrw20\brdrcf8 \clpadl144 \clpadr144 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl520\sa210\partightenfactor0
+
+\f3\b\fs32 \AppleTypeServices \cf6 \cb1 \strokec6 Class
+\b0 \cell 
+\pard\intbl\itap1\pardeftab720\sl520\sa210\partightenfactor0
+
+\b \cf6 Network prefix(CIDR)
+\b0 \cell 
+\pard\intbl\itap1\pardeftab720\sl520\sa210\partightenfactor0
+
+\b \cf6 Dotted-Decimal
+\b0 \cell 
+\pard\intbl\itap1\pardeftab720\sl520\sa210\partightenfactor0
+
+\b \cf6 First\'a0\uc0\u8232 Octet
+\b0 \cell 
+\pard\intbl\itap1\pardeftab720\sl520\sa210\partightenfactor0
+
+\b \cf6 Second Octet
+\b0 \cell 
+\pard\intbl\itap1\pardeftab720\sl520\sa210\partightenfactor0
+
+\b \cf6 Third\'a0\uc0\u8232 Octet
+\b0 \cell 
+\pard\intbl\itap1\pardeftab720\sl520\sa210\partightenfactor0
+
+\b \cf6 Fourth Octet
+\b0 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trcbpat3 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth1440\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrs\brdrw20\brdrcf8 \clbrdrb\brdrs\brdrw20\brdrcf8 \clbrdrr\brdrs\brdrw20\brdrcf8 \clpadl144 \clpadr144 \gaph\cellx1234
+\clvertalc \clshdrawnil \clwWidth1960\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf8 \clbrdrr\brdrs\brdrw20\brdrcf8 \clpadl144 \clpadr144 \gaph\cellx2468
+\clvertalc \clshdrawnil \clwWidth2420\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf8 \clbrdrr\brdrs\brdrw20\brdrcf8 \clpadl144 \clpadr144 \gaph\cellx3702
+\clvertalc \clshdrawnil \clwWidth3980\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf8 \clbrdrr\brdrs\brdrw20\brdrcf8 \clpadl144 \clpadr144 \gaph\cellx4937
+\clvertalc \clshdrawnil \clwWidth3940\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf8 \clbrdrr\brdrs\brdrw20\brdrcf8 \clpadl144 \clpadr144 \gaph\cellx6171
+\clvertalc \clshdrawnil \clwWidth4180\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf8 \clbrdrr\brdrs\brdrw20\brdrcf8 \clpadl144 \clpadr144 \gaph\cellx7405
+\clvertalc \clshdrawnil \clwWidth4280\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf8 \clbrdrr\brdrs\brdrw20\brdrcf8 \clpadl144 \clpadr144 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl520\sa210\partightenfactor0
+\cf6 Class A\cell 
+\pard\intbl\itap1\pardeftab720\sl520\sa210\partightenfactor0
+\cf6 /8\cell 
+\pard\intbl\itap1\pardeftab720\sl520\sa210\partightenfactor0
+\cf6 255.0.0.0\cell 
+\pard\intbl\itap1\pardeftab720\sl520\sa210\partightenfactor0
+\cf6 11111111(network count)\cell 
+\pard\intbl\itap1\pardeftab720\sl520\sa210\partightenfactor0
+\cf6 00000000(host-count)\cell 
+\pard\intbl\itap1\pardeftab720\sl520\sa210\partightenfactor0
+\cf6 00000000\cf6 \outl0\strokewidth0 (host-count)\cf6 \outl0\strokewidth0 \strokec6 \cell 
+\pard\intbl\itap1\pardeftab720\sl520\sa210\partightenfactor0
+\cf6 00000000\cf6 \outl0\strokewidth0 (host-count)\cf6 \outl0\strokewidth0 \strokec6 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trcbpat3 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth1440\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrs\brdrw20\brdrcf8 \clbrdrb\brdrs\brdrw20\brdrcf8 \clbrdrr\brdrs\brdrw20\brdrcf8 \clpadl144 \clpadr144 \gaph\cellx1234
+\clvertalc \clshdrawnil \clwWidth1960\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf8 \clbrdrr\brdrs\brdrw20\brdrcf8 \clpadl144 \clpadr144 \gaph\cellx2468
+\clvertalc \clshdrawnil \clwWidth2420\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf8 \clbrdrr\brdrs\brdrw20\brdrcf8 \clpadl144 \clpadr144 \gaph\cellx3702
+\clvertalc \clshdrawnil \clwWidth3980\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf8 \clbrdrr\brdrs\brdrw20\brdrcf8 \clpadl144 \clpadr144 \gaph\cellx4937
+\clvertalc \clshdrawnil \clwWidth3940\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf8 \clbrdrr\brdrs\brdrw20\brdrcf8 \clpadl144 \clpadr144 \gaph\cellx6171
+\clvertalc \clshdrawnil \clwWidth4180\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf8 \clbrdrr\brdrs\brdrw20\brdrcf8 \clpadl144 \clpadr144 \gaph\cellx7405
+\clvertalc \clshdrawnil \clwWidth4280\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf8 \clbrdrr\brdrs\brdrw20\brdrcf8 \clpadl144 \clpadr144 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl520\sa210\partightenfactor0
+\cf6 Class B\cell 
+\pard\intbl\itap1\pardeftab720\sl520\sa210\partightenfactor0
+\cf6 /16\cell 
+\pard\intbl\itap1\pardeftab720\sl520\sa210\partightenfactor0
+\cf6 255.255.0.0\cell 
+\pard\intbl\itap1\pardeftab720\sl520\sa210\partightenfactor0
+\cf6 11111111\cf6 \outl0\strokewidth0 (network count)\cf6 \outl0\strokewidth0 \strokec6 \cell 
+\pard\intbl\itap1\pardeftab720\sl520\sa210\partightenfactor0
+\cf6 11111111\cf6 \outl0\strokewidth0 (network count)\cf6 \outl0\strokewidth0 \strokec6 \cell 
+\pard\intbl\itap1\pardeftab720\sl520\sa210\partightenfactor0
+\cf6 00000000\cf6 \outl0\strokewidth0 (host-count)\cf6 \outl0\strokewidth0 \strokec6 \cell 
+\pard\intbl\itap1\pardeftab720\sl520\sa210\partightenfactor0
+\cf6 00000000\cf6 \outl0\strokewidth0 (host-count)\cf6 \outl0\strokewidth0 \strokec6 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trcbpat3 \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth1440\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrs\brdrw20\brdrcf8 \clbrdrb\brdrs\brdrw20\brdrcf8 \clbrdrr\brdrs\brdrw20\brdrcf8 \clpadl144 \clpadr144 \gaph\cellx1234
+\clvertalc \clshdrawnil \clwWidth1960\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf8 \clbrdrr\brdrs\brdrw20\brdrcf8 \clpadl144 \clpadr144 \gaph\cellx2468
+\clvertalc \clshdrawnil \clwWidth2420\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf8 \clbrdrr\brdrs\brdrw20\brdrcf8 \clpadl144 \clpadr144 \gaph\cellx3702
+\clvertalc \clshdrawnil \clwWidth3980\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf8 \clbrdrr\brdrs\brdrw20\brdrcf8 \clpadl144 \clpadr144 \gaph\cellx4937
+\clvertalc \clshdrawnil \clwWidth3940\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf8 \clbrdrr\brdrs\brdrw20\brdrcf8 \clpadl144 \clpadr144 \gaph\cellx6171
+\clvertalc \clshdrawnil \clwWidth4180\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf8 \clbrdrr\brdrs\brdrw20\brdrcf8 \clpadl144 \clpadr144 \gaph\cellx7405
+\clvertalc \clshdrawnil \clwWidth4280\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf8 \clbrdrr\brdrs\brdrw20\brdrcf8 \clpadl144 \clpadr144 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl520\sa210\partightenfactor0
+\cf6 Class C\cell 
+\pard\intbl\itap1\pardeftab720\sl520\sa210\partightenfactor0
+\cf6 /24\cell 
+\pard\intbl\itap1\pardeftab720\sl520\sa210\partightenfactor0
+\cf6 255.255.255.0\cell 
+\pard\intbl\itap1\pardeftab720\sl520\sa210\partightenfactor0
+\cf6 11111111\cf6 \outl0\strokewidth0 (network count)\cf6 \outl0\strokewidth0 \strokec6 \cell 
+\pard\intbl\itap1\pardeftab720\sl520\sa210\partightenfactor0
+\cf6 11111111\cf6 \outl0\strokewidth0 (network count)\cf6 \outl0\strokewidth0 \strokec6 \cell 
+\pard\intbl\itap1\pardeftab720\sl520\sa210\partightenfactor0
+\cf6 11111111\cf6 \outl0\strokewidth0 (network count)\cf6 \outl0\strokewidth0 \strokec6 \cell 
+\pard\intbl\itap1\pardeftab720\sl520\sa210\partightenfactor0
+\cf6 00000000\cf6 \outl0\strokewidth0 (host-count)\cf6 \outl0\strokewidth0 \strokec6 \cell \lastrow\row
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1\fs34 \AppleTypeServices\AppleTypeServicesF65539 \cf2 \cb3 \strokec2 Class-A : accommodates nearly \AppleTypeServices\AppleTypeServicesF65539 \cf10 \cb3 \outl0\strokewidth0 2-to-the-power-
+\b \AppleTypeServices\AppleTypeServicesF65539 8
+\b0 \AppleTypeServices\AppleTypeServicesF65539 \cf2 \cb3 \outl0\strokewidth0 \strokec2  networks with 2-to-the-power-
+\b \AppleTypeServices\AppleTypeServicesF65539 24
+\b0 \AppleTypeServices\AppleTypeServicesF65539  hosts each \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\AppleTypeServices\AppleTypeServicesF65539 \cf10 \cb3 \outl0\strokewidth0 Class-B : accommodates nearly 2-to-the-power-
+\b \AppleTypeServices\AppleTypeServicesF65539 16
+\b0 \AppleTypeServices\AppleTypeServicesF65539  networks with 2-to-the-power-
+\b \AppleTypeServices\AppleTypeServicesF65539 16
+\b0 \AppleTypeServices\AppleTypeServicesF65539  hosts each\
+Class-C : accommodates nearly 2-to-the-power-
+\b \AppleTypeServices\AppleTypeServicesF65539 24
+\b0 \AppleTypeServices\AppleTypeServicesF65539  networks with 2-to-the-power-
+\b \AppleTypeServices\AppleTypeServicesF65539 8
+\b0 \AppleTypeServices\AppleTypeServicesF65539  hosts each\AppleTypeServices\AppleTypeServicesF65539 \cf2 \cb3 \outl0\strokewidth0 \strokec2 		\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf2 - 
+\b \AppleTypeServices\AppleTypeServicesF65539 broadcast address : 
+\f3\b0\fs32 \AppleTypeServices \cf5 \strokec5 A\'a0
+\b broadcast address
+\b0 \'a0is a IP address\'a0at which all devices connected to a network are enabled to receive datagrams. A message sent to a\'a0
+\b broadcast address
+\b0 \'a0may be received by all network-attached hosts. Eg: for class A subnet with IP 255.0.0.0 the broadcast address is  255.255.255.255
+\f1\fs34 \AppleTypeServices\AppleTypeServicesF65539 \cf2 \strokec2 \
+- 
+\b \AppleTypeServices\AppleTypeServicesF65539 DHCP(
+\f4\fs32 \AppleTypeServices \cf11 \strokec11 Dynamic Host Configuration Protocol
+\f1\fs34 \AppleTypeServices\AppleTypeServicesF65539 \cf2 \strokec2 )
+\b0 \AppleTypeServices\AppleTypeServicesF65539  : 
+\f4\fs32 \AppleTypeServices \cf11 \strokec11 network server that automatically provides and assigns IP addresses, default gateways and other network parameters to client devices using DHCP protocol for a lease period(post which new parameters are sent to the client). 
+\f1\fs34 \AppleTypeServices\AppleTypeServicesF65539 \cf2 \strokec2 \
+- 
+\b \AppleTypeServices\AppleTypeServicesF65539 routers
+\b0 \AppleTypeServices\AppleTypeServicesF65539  : 
+\f0\fs28 \AppleTypeServices \cf6 \strokec6 responsible for transmitting data within network, 
+\f1\fs34 \AppleTypeServices\AppleTypeServicesF65539 \cf2 \strokec2 \
+- 
+\b \AppleTypeServices\AppleTypeServicesF65539 modem(
+\f0\fs28 \AppleTypeServices \cf6 \strokec6 modulate\'a0demodulate
+\f1\fs34 \AppleTypeServices\AppleTypeServicesF65539 \cf2 \strokec2 )
+\b0 \AppleTypeServices\AppleTypeServicesF65539  : 
+\f0\fs28 \AppleTypeServices \cf6 \strokec6 They allow devices to communicate with other remote devices by converting digital data into analog data and transmitting it over an analog telephone line
+\f1\fs34 \AppleTypeServices\AppleTypeServicesF65539 \cf2 \strokec2 \
+- 
+\b \AppleTypeServices\AppleTypeServicesF65539 gateways
+\b0 \AppleTypeServices\AppleTypeServicesF65539  : 
+\f0\fs28 \AppleTypeServices \cf6 \cb3 \outl0\strokewidth0 they are(similar) to routers, but are \cf6 \cb3 responsible for transmitting data between networks
+\f1\fs34 \AppleTypeServices\AppleTypeServicesF65539 \cf2 \cb3 \outl0\strokewidth0 \strokec2 \
+- 
+\b \AppleTypeServices\AppleTypeServicesF65539 switches
+\b0 \AppleTypeServices\AppleTypeServicesF65539  : 
+\f3\fs32 \AppleTypeServices \cf5 \strokec5 A network\'a0
+\b switch
+\b0 \'a0is a small hardware device that joins multiple computers together within one local area network (LAN)
+\f1\fs34 \AppleTypeServices\AppleTypeServicesF65539 \cf2 \strokec2 ,
+\f0\fs28 \AppleTypeServices \cf6 \strokec6 They use the MAC address of a device to send data only to the port the destination device is plugged into
+\f1\fs34 \AppleTypeServices\AppleTypeServicesF65539 \cf2 \strokec2 \
+- 
+\b \AppleTypeServices\AppleTypeServicesF65539 hub
+\b0 \AppleTypeServices\AppleTypeServicesF65539  : 
+\f3\fs32 \AppleTypeServices \cf5 \strokec5 A\'a0
+\b Hub
+\b0 \'a0connects multiple Ethernet devices together, making them act as a single segment, 
+\f0\b\fs28 \cf6 \strokec6 hubs\'a0
+\b0 broadcast data to all ports, which is inefficient\
+\
+\'97 
+\f3\b\fs32 \cf5 \strokec5 Routers
+\b0 \'a0might have a single WAN port and a single LAN port and are designed to connect an existing LAN hub or\'a0
+\b switch
+\b0 \'a0to a WAN. Ethernet\'a0
+\b switches
+\b0 \'a0and hubs can be connected to a\'a0
+\b router
+\b0 \'a0with multiple PC ports to expand a LAN\
+\
+- Routing \
+\'97 Internal :\
+\pard\pardeftab720\sl510\sa510\qj\partightenfactor0
+
+\f1\fs34 \AppleTypeServices\AppleTypeServicesF65539 \cf2 \strokec2 Address Resolution Protocol. It's like your PC yelling "
+\f2\i \AppleTypeServices\AppleTypeServicesF65539 HELLO! I am looking for the computer
+\f1\i0 \AppleTypeServices\AppleTypeServicesF65539 \'a0
+\f5\b \AppleTypeServices\AppleTypeServicesF65539 \cf8 \strokec8 172.10.1.30
+\f1\b0 \AppleTypeServices\AppleTypeServicesF65539 \cf2 \strokec2 ".\
+Now each device on the network receives that message and looks at its own IP address in turn. The router (
+\f5\b \AppleTypeServices\AppleTypeServicesF65539 \cf8 \strokec8 172.10.1.1
+\f1\b0 \AppleTypeServices\AppleTypeServicesF65539 \cf2 \strokec2 ) sees it is not the one being looked for and drops the message. Other computers on the network do the same thing until the computer that has the IP of\'a0
+\f5\b \AppleTypeServices\AppleTypeServicesF65539 \cf8 \strokec8 172.10.1.30
+\f1\b0 \AppleTypeServices\AppleTypeServicesF65539 \cf2 \strokec2 \'a0gets it, checks its address, and sees they match. It then replies back to the sending computer of\'a0
+\f5\b \AppleTypeServices\AppleTypeServicesF65539 \cf8 \strokec8 172.10.1.20
+\f1\b0 \AppleTypeServices\AppleTypeServicesF65539 \cf2 \strokec2 \'a0saying "
+\f2\i \AppleTypeServices\AppleTypeServicesF65539 HEY! That's me and my MAC address is
+\f1\i0 \AppleTypeServices\AppleTypeServicesF65539 \'a0
+\f5\b \AppleTypeServices\AppleTypeServicesF65539 \cf8 \strokec8 AA00:BC33:3211
+\f1\b0 \AppleTypeServices\AppleTypeServicesF65539 \cf2 \strokec2 ".\
+\'97 External :\
+- See above in the internal routing that the router drops the packet with an internal dest\'92n IP address & not meant for it. \AppleTypeServices\AppleTypeServicesF65539 This is how routers stop broadcasts from traveling the entire Internet.\
+- So, for external network the arp searches for the default gateway. Normally, when a computer cannot find a route for an IP address, it will send it along to the default gateway as a route of last resort setting router\'92s MAC address as the destination MAC address\'a0\
+- The router then looks at its routing tables to find a way to get to the\'a0
+\f5\b \AppleTypeServices\AppleTypeServicesF65539 \cf8 \strokec8 dest\'92n IP, 
+\f1\b0 \AppleTypeServices\AppleTypeServicesF65539 \cf2 \strokec2 This process continues over and over with each router that picks up the packets looking at the addresses, seeing it's not for their network and passing it along until it reaches the final destination using ARP. That router will strip of the source and destination MAC addresses that allowed the packets to travel, and replace the source with its own\
+- }
