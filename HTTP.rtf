@@ -1,0 +1,107 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf400
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww28600\viewh15340\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 HTTP\
+\
+
+\b Basic terminologies\
+- Web server : 
+\b0 N/w application running on a machine listening on some port
+\b \
+- Web client : 
+\b0 tool used for accessing a web application/server(browser, cURL, telnet)\
+- 
+\b Protocol :
+\b0  rules used for a communication such as http, ftp, websocket\
+\
+\
+\
+1) 
+\b TCP
+\b0 \
+C \'97\'97\'97\'97\'97\'97\'97 \'97\'97 >S\
+	Syn(r u able to receive my message?)\
+   <\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97 \
+	ack(received your message (Y)) & syn(please respond if u received my ack)\
+ \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97 >\
+	ack(received ur ack (Y))\
+\
+Now after this handshake, the connection stays connected & this session is closed only when all the document exchange is completed\
+\
+2) 
+\b request format
+\b0 \
+\
+<request line> \'97\'97\'97\'97> Eg: GET /doc/text.html HTTP 1.1 \'97\'97\'97>a get request, for <text.html> document using https 1.1\
+<\'85..\
+Headers	\'97\'97\'97\'97\'97\'97> This block specifies the different parameters about the client( or browser) such as the end-point hostname(mandatory), accepted files, encryption formats, content length etc\
+\'85\'85.>\
+<new line character>\
+<request body>\'97\'97\'97 > request data\
+\
+3) 
+\b response format
+\b0 \
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 <response line> \'97\'97\'97\'97> Eg: HTTP1.1 <response code> OK \'97\'97\'97>a get request, for <text.html> document using https 1.1\
+<\'85..\
+Headers	\'97\'97\'97\'97\'97\'97> This block specifies the different parameters about the server such as the server-type, accepted ranges(supports video transmission), date & time, content type etc\
+\'85\'85.>\
+<new line character>\
+<response body>\'97\'97\'97 > response data\
+\
+4) 
+\b Methods\
+- GET : 
+\b0 get the resource from server, the args are passed in the URL. Hence they can be logged and cached\
+- 
+\b POST : 
+\b0 send request to the server not in the URL but in form of an entity which can be handled by the server\
+- 
+\b PUT : 
+\b0 just put something on the server\
+- 
+\b TRACE : 
+\b0 analyse/log the hops between client & server\
+- 
+\b OPTIONS : 
+\b0 get the parameters from the server\
+- 
+\b HEAD : 
+\b0 just like get, but asks the server to just respond if the file exists in server or check the parameters of the file\
+\
+5) 
+\b Status code\
+- 1XX :
+\b0  Informational message\
+- 
+\b 2XX : 
+\b0 Success\
+- 
+\b 3XX : 
+\b0 Redirection\
+- 
+\b 4XX : 
+\b0 Client Error, due request error like object not fount or authorisation\
+- 
+\b 5XX : 
+\b0 Server error, due to error in either request handling  or network error\
+\
+6) 
+\b Cacheing\
+- 
+\b0 temporary storing of recently requested resources(responses)\
+- eliminates unnecessary transfers\
+- can be done at the client, intermediate servers or the end-point-server\
+- E-tag value in the response headers & the last modified header together with the time-to-live match & fall within the maximum age, the cache is retained/updated accordingly\
+\
+7) 
+\b Cookie\
+- 
+\b0 storing of small amt of significant data on the client such as the \'93authenticated\'94 value in automatic Facebook logins\
+}
